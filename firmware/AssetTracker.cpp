@@ -32,13 +32,20 @@ float AssetTracker::readLat(){
 float AssetTracker::readLon(){
     return gps.longitude;
 }
-//insert here
+
+float AssetTracker::readAlt(){
+    return gps.altitude;
+}
 
 String AssetTracker::readLatLon(){
     String latLon = String::format("%f,%f",gps.latitudeDegrees,gps.longitudeDegrees);
     return latLon;
 }
 
+float AssetTracker::readLatLonAlt(){
+    String latLonAlt = String::format("%f","%f","%f",gps.latitudeDegrees,gps.longitudeDegrees,gps.altitude);
+    return latLonAlt;
+}
 void AssetTracker::gpsOn(){
     // Power to the GPS is controlled by a FET connected to D6
     pinMode(D6,OUTPUT);
